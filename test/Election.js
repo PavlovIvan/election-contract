@@ -130,7 +130,7 @@ describe("Election contract", function () {
         });
     });
 
-    describe("End election", function () {
+    describe("Finish election", function () {
         it("Should fail if election is still going", async function () {
             await hardhatElection.connect(owner).createElection(candidatesAddrs, description);
 
@@ -145,7 +145,7 @@ describe("Election contract", function () {
             ).to.be.revertedWith("Election doesn't exist");
         });
 
-        it("Should end election if happy pass", async function () {
+        it("Should finish election if happy pass", async function () {
             await hardhatElection.connect(owner).createElection(candidatesAddrs, description);
 
             await hardhatElection.connect(voters[0]).vote(0, candidatesAddrs[2], {

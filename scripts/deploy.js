@@ -1,4 +1,8 @@
 async function main() {
+    const [owner] = await ethers.getSigners();
+
+    console.log("Deploying contracts with the account:", owner.address);
+
     const Election = await ethers.getContractFactory("Election");
     const hardhatElection = await Election.deploy();
 
